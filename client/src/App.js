@@ -23,7 +23,6 @@ function App() {
                 <CssBaseline>
                     <BrowserRouter>
                         <Switch>
-                            {/* Landing page temporarily redirects to sign-up. */}
                             <Route
                                 exact
                                 path="/"
@@ -33,7 +32,11 @@ function App() {
                             <Route exact path="/login" component={Login} />
                             <Layout>
                                 <Switch>
-                                    <ProtectedRoute exact path="/profile" component={Profile} />
+                                    <ProtectedRoute
+                                        exact
+                                        path="/profile"
+                                        component={Profile}
+                                    />
                                     <ProtectedRoute
                                         path="/profile/:profileContent"
                                         component={Profile}
