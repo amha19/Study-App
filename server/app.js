@@ -24,7 +24,7 @@ app.use(logger('dev'));
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(join(__dirname, 'public')));
+app.use(express.static(join(__dirname, '../client/build')));
 
 app.use('/auth', authRouter);
 app.use('/universities', universityRouter);
@@ -32,6 +32,10 @@ app.use('/user', userRouter);
 app.use('/profile', profileRouter);
 app.use('/upload', uploadRouter);
 app.use('/forum', forumRouter);
+
+app.use((req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});
 
 app.use(handleErrors);
 
