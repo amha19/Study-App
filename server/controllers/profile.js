@@ -1,5 +1,5 @@
 const { NotFound } = require('../utils/errors');
-const Profile = require('../models/profile');
+const Profile = require('../models/Profile');
 const User = require('../models/user');
 
 async function updateProfile(req, res, next) {

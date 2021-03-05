@@ -3,7 +3,7 @@ const router = express.Router();
 const auth = require('../middleware/verifyAuth');
 const { NotFound } = require('../utils/errors');
 
-const Profile = require('../models/profile');
+const Profile = require('../models/Profile');
 const User = require('../models/user');
 const updateProfile = require('../controllers/profile');
 require('../models/Group');

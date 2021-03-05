@@ -1,7 +1,7 @@
 const { GeneralError, NotFound, Unauthorized } = require('../utils/errors');
 const { validationResult } = require('express-validator');
 
-const Profile = require('../models/profile');
+const Profile = require('../models/Profile');
 const Post = require('../models/post');
 const Comment = require('../models/Comment');
 
@@ -56,7 +56,7 @@ exports.hideComment = async (req, res, next) => {
         if (!comment) throw new NotFound('No comment found');
 
         const postComment = post.comments.find(
-            pc => pc.toString() === commentId
+            (pc) => pc.toString() === commentId
         );
         if (!postComment) throw new NotFound('No comment in post found');
 
