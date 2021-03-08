@@ -6,5 +6,8 @@
         "start": "./server/bin/www",
         "dev": "nodemon ./server/bin/www",
         "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ./server && npm install --prefix ./client && npm run build --prefix ./client"
+    },
+    "engines": {
+        "node": "14.13.0"
     }
 }
