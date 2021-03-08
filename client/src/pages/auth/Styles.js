@@ -78,4 +78,12 @@ export const useStyles = makeStyles(theme => ({
         marginTop: 8,
         marginBottom: 8,
     },
+    demo_btn: {
+        color: '#FFF',
+        background: 'linear-gradient(45deg, #2574FF, #4B00FF)',
+        textTransform: 'none',
+        fontSize: '0.875rem',
+        padding: 20,
+        height: '3rem',
+    },
 }));
