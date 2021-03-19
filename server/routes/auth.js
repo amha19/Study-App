@@ -12,7 +12,7 @@ const {
     Unauthorized,
 } = require('../utils/errors');
 const { check } = require('express-validator');
-const Profile = require('../models/profile');
+const Profile = require('../models/Profile');
 const User = require('../models/user');
 const userController = require('../controllers/user');
 const Group = require('../models/Group');
@@ -62,7 +62,7 @@ router.post('/register', validateEntryReq, async function (req, res, next) {
         });
         userInfo.password = hashedPw;
         const user = new User(userInfo);
-        const userDoc = await user.save(user).catch(err => {
+        const userDoc = await user.save(user).catch((err) => {
             console.log(err.Error);
             if (!err.errors || (err.errors.email && err.errors.email.reason)) {
                 throw new GeneralError('Error connecting to database.');

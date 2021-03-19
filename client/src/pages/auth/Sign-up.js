@@ -87,6 +87,25 @@ const Signup = () => {
         [addedCourses]
     );
 
+    const demoLogin = () => {
+        const values = { email: 'lucy@gmail.com', password: '123456qwerty' };
+        actions
+            .login(values)(dispatch)
+            .then(res => {
+                if (res.status === 200) {
+                    enqueueSnackbar('Logged in successfully', {
+                        variant: 'success',
+                        autoHideDuration: '5000',
+                    });
+                } else {
+                    enqueueSnackbar('Server Error', {
+                        variant: 'Error',
+                        autoHideDuration: '5000',
+                    });
+                }
+            });
+    };
+
     if (isProfLoading) return <LinearProgress />;
 
     if (isAuth) return <Redirect to="/profile" />;
@@ -105,6 +124,11 @@ const Signup = () => {
                     <div className={classes.logoContainer}>
                         <div className={classes.logo}>
                             <img src={logo} alt="logo"></img>
+                        </div>
+                        <div>
+                            <Button className={classes.demo_btn} onClick={demoLogin}>
+                                Demo
+                            </Button>
                         </div>
                         <Hidden mdUp>
                             <Link

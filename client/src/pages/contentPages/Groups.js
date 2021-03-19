@@ -140,7 +140,7 @@ const Groups = () => {
             };
 
             const response = await axios.post('/user/groups', data);
-            
+
             setGroupName('');
             setCourseId('');
             setGroupPicture('');
@@ -360,7 +360,7 @@ const Groups = () => {
                                 color="textPrimary"
                                 style={{ paddingTop: '60px' }}
                             >
-                                Sugggested For You.
+                                Suggested For You.
                             </Typography>
                         </Grid>
                         <Grid item justify="center" direction="row" container sm={12}>

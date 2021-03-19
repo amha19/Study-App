@@ -59,7 +59,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const PostCard = ({ post, updateActivePost }) => {
-    console.log(post);
     const classes = useStyles();
     const [isLoading, setIsLoading] = useState(true);
 

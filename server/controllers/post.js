@@ -1,7 +1,7 @@
 const { GeneralError, NotFound, Unauthorized } = require('../utils/errors');
 const { validationResult } = require('express-validator');
 
-const Profile = require('../models/profile');
+const Profile = require('../models/Profile');
 const Post = require('../models/post');
 const Forum = require('../models/Forum');
 
@@ -77,7 +77,7 @@ exports.hidePost = async (req, res, next) => {
         const post = await Post.findById(postId);
         if (!post) throw new NotFound('No post found');
 
-        const forumPost = forum.posts.find(fp => fp.toString() === postId);
+        const forumPost = forum.posts.find((fp) => fp.toString() === postId);
         if (!forumPost) throw new NotFound('No post in forum found');
 
         // check if useres are deleteing their own posts
@@ -131,7 +131,7 @@ exports.addUpvote = async (req, res, next) => {
 
         // make sure a user can up vote a post only once.
         const votesArr = post.votes.filter(
-            vote => vote.user.toString() === userId
+            (vote) => vote.user.toString() === userId
         );
 
         if (votesArr.length > 0)
@@ -158,12 +158,14 @@ exports.removeUpvote = async (req, res, next) => {
         if (!post) throw new NotFound('No post found');
 
         const voteArr = post.votes.filter(
-            vote => vote.user.toString() === userId
+            (vote) => vote.user.toString() === userId
         );
         if (voteArr.length === 0)
             throw new GeneralError('Post has not yet been voted');
 
-        post.votes = post.votes.filter(vote => vote.user.toString() !== userId);
+        post.votes = post.votes.filter(
+            (vote) => vote.user.toString() !== userId
+        );
 
         const response = await post.save();
         if (!response) throw GeneralError('Error in unvoting');

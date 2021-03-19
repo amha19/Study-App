@@ -75,7 +75,7 @@ const PostDialog = ({ handleClosePost, activePostId }) => {
             setTitle(res.data.post.title);
             setPostText(res.data.post.text);
             setAvatarUrl(res.data.post.postAvatar);
-            setUserAvatar(res.data.post.userAvatar)
+            setUserAvatar(res.data.post.userAvatar);
             setComments(res.data.post.comments);
         } catch (err) {
             console.log(err);
@@ -83,7 +83,7 @@ const PostDialog = ({ handleClosePost, activePostId }) => {
     };
     useEffect(() => {
         getPostData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activePostId]);
 
     const addComment = async () => {
@@ -147,7 +147,10 @@ const PostDialog = ({ handleClosePost, activePostId }) => {
                     {/* Image container */}
                     <Grid item container xs={12} justify="center">
                         <Grid item>
-                            <img src={avatarUrl ? avatarUrl : defaultPostPicture} alt="Post" />
+                            <img
+                                src={avatarUrl ? avatarUrl : defaultPostPicture}
+                                alt="Post"
+                            />
                         </Grid>
                     </Grid>
                     <Box className={classes.imageContainer}></Box>
@@ -185,8 +188,8 @@ const PostDialog = ({ handleClosePost, activePostId }) => {
                         <Grid item xs={1}></Grid>
                         <Grid item xs={9} container direction="column">
                             {comments.map(comment => (
-                                <Grid item>
-                                    <Comments key={comment._id} comment={comment} />
+                                <Grid item key={comment._id}>
+                                    <Comments comment={comment} />
                                 </Grid>
                             ))}
                         </Grid>

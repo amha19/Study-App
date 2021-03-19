@@ -1,0 +1,13 @@
+{
+    "name": "study-app",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "./server/bin/www",
+        "dev": "nodemon ./server/bin/www",
+        "heroku-postbuild": "npm install --prefix ./server && npm install --prefix ./client"
+    },
+    "engines": {
+        "node": "14.13.0"
+    }
+}
